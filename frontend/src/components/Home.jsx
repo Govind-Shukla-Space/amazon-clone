@@ -1,8 +1,10 @@
-import React from 'react'
-
+import React,{useState} from 'react'
 const Home = () => {
+  let count=useState(0)
   return (
-    <div>Home</div>
+    <div>
+      
+    </div>
   )
 }
 

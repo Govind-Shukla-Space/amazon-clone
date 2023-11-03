@@ -18,3 +18,4 @@ def say_hello(username: str):
 @app.get('/hello2/{username}')
 def say_hello2(username: str):
     return {"username": username}
+

@@ -1,14 +1,11 @@
 import React from 'react'
 
-export const ProductItems = (props) => {
-  const imageUrl=props.imageUrl;
-  const title=props.title;
-  const price=props.price;
+export const ProductItems = ({ iUrl: imageUrl, title, price }) => {
   return (
     <div>
-        <img src={imageUrl}/>
-        <h1>{title}</h1>
-        <p>{price}</p>
+      <img src={imageUrl} />
+      <h1>{title}</h1>
+      <p>{price}</p>
     </div>
   );
 }

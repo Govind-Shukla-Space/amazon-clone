@@ -8,6 +8,7 @@ def createTodo(todo: dict = Body(...)):
     todos.append(todo)
     return todo
 
+
 # get all todos
 @router.get('/api/v1/todos')
 def getAllTodos():

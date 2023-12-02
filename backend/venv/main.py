@@ -1,21 +1,22 @@
-from fastapi import FastAPI,Body
-import todos
+from fastapi import FastAPI
+from fastapi.middleware import cors
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI()
-app.include_router(todos.router)
 
-@app.get('/')
-def greet():
-    return "3rd year elite intro to fastapi"
+origins = [
+    "http://localhost:4000",
+]
 
-@app.get('/')
-def greet2():
-    return "overriden"
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-@app.get('/hello/{username}')
-def say_hello(username: str):
-    return "hello " + username
 
-@app.get('/hello2/{username}')
-def say_hello2(username: str):
-    return {"username": username}
-
+@app.get('/api/v1/products')
+def getAllProducts():
+    return [{"imageUrl": "xyz", "title": "tb1", "price": "24"}, {"imageUrl": "xyz", "title": "tb2", "price": "24"}, {"imageUrl": "xyz", "title": "tb3", "price": "48"}]
